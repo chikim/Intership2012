@@ -13,3 +13,11 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+
+!.gitignore
+*~
+/doc/s_app
+/.rspec
+/db/schema.rb
+Gemfile.lock
