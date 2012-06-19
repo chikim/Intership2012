@@ -49,7 +49,7 @@ describe "StaticPages" do
     visit root_path
 
     click_link "About"
-    page.should have_selector 'title', text: full_title('About Us')
+    page.should have_selector 'title', text: full_title('About us')
 
     click_link "Help"
     page.should have_selector 'title', text: full_title('Help')
@@ -57,12 +57,13 @@ describe "StaticPages" do
     click_link "Contact"
     page.should have_selector 'title', text: full_title('Contact')
 
-    # click_link "Home"
-    # click_link "Sign up now!"
-    # page.should # fill in
+    click_link "Home"
+    click_link "Sign up now!"
+    page.should have_selector 'h1', text: 'Sign up'
+    page.should have_selector 'title', text: full_title('Sign up')
 
-    # click_link "sample app"
-    # page.should # fill in
+    click_link "sample app"
+    current_path.should == root_path
   end
 
 end
