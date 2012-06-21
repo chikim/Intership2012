@@ -1,7 +1,8 @@
 SampleApp::Application.routes.draw do
-  get "users/new"
 
-  get "user/new"
+  match '/users/:name', to: 'users#show_by_name', name: /([a-zA-Z]+.+|[\d]+[a-zA-Z]+.+)/
+
+  resources :users
 
   # get "static_pages/home"
   root to: 'static_pages#home'
