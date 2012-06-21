@@ -34,6 +34,7 @@ group :test do
   gem 'libnotify', '0.5.9'
   gem 'spork', '0.9.0'
   gem 'guard-spork', '0.3.2'
+  gem 'factory_girl_rails', '~> 3.0'
 end
 
 gem 'jquery-rails', '2.0.0'
