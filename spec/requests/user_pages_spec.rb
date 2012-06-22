@@ -32,7 +32,7 @@ describe "UserPages" do
 			describe "after submission" do
 				before { click_button submit }
 
-				it { should have_selector( 'head',text: 'Sign up' ) }
+				it { should have_selector( 'title',text: 'Sign up' ) }
 				it { should have_content('error') }
 			end
 		end
@@ -45,9 +45,20 @@ describe "UserPages" do
 				fill_in	"Confirmation",	with: "foobar"
 			end
 
+			describe "after saving the user" do
+        before { click_button submit }
+        let(:user) { User.find_by_email('user@example.com') }
+
+        it { should have_selector('title', text: user.name) }
+        it { should have_selector('div.alert.alert-success', text: 'Welcome') }
+        it { should have_link('Sign out') }
+      end
+
 			it "should create user"	do
 				expect {click_button submit}.to change(User, :count).by(1)
 			end
+
+
 		end
 
 	end
