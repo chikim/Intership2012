@@ -12,7 +12,7 @@
 class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-  attr_accessible :email, :name, :password_digest, :password, :password_confirmation
+  attr_accessible :email, :name, :password_digest, :password, :password_confirmation, :remember_token
 
   has_secure_password
 
@@ -26,5 +26,12 @@ class User < ActiveRecord::Base
 
   before_save do |user|
     user.email = email.downcase
+    create_remember_token
+  end
+
+  private
+
+  def create_remember_token
+    self.remember_token = SecureRandom.urlsafe_base64
   end
 end
