@@ -7,3 +7,7 @@ def valid_signin(user)
   click_button "Sign in"
 end
 
+def sign_in(user)
+  visit signin_path
+  valid_signin(user)
+end
