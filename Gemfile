@@ -3,13 +3,15 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.6'
 gem 'bootstrap-sass', '2.0.0'
 gem 'bcrypt-ruby', '3.0.1'
-
+gem 'faker', '1.0.1'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development do
   gem 'sqlite3'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '2.10.0'
   gem 'guard-rspec'
   gem 'annotate', '~> 2.4.1.beta'
 end

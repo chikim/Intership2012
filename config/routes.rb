@@ -1,6 +1,6 @@
 SampleApp::Application.routes.draw do
 
-  match '/users/:name', to: 'users#show_by_name', name: /\d*[^\d].+/
+  # match '/users/:name', to: 'users#show_by_name', name: /([a-zA-Z]+.+|[\d]+[a-zA-Z]+.+)/
 
   resources :users
   resources :sessions, only: [ :new, :create, :destroy]
