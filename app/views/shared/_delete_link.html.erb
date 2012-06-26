@@ -1,0 +1,7 @@
+<span class="content"><%= kobject.content %></span>
+<span class="timestamp">
+	Posted <%= time_ago_in_words(kobject.created_at) %>
+</span>
+<% if current_user?(kobject.user) %>
+	<%= link_to "delete", kobject, method: :delete, data: { confirm: "You sure?" }, title: kobject.content %>
+<% end %>
