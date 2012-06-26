@@ -2,6 +2,7 @@
 
 $gray: #999;
 $grayMediumLight: #eaeaea;
+$red: #B94A48;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -188,5 +189,44 @@ aside {
       border-bottom: 1px solid $grayLighter;
     }
   }
+}
+
+/* microposts */
+
+.microposts {
+  list-style: none;
+  margin: 10px 0 0 0;
+
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+
+.content {
+  display: block;
+  word-wrap: break-word;
+  padding-left: 60px;
+}
+
+.timestamp {
+  color: $grayLight;
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+#microposts_content.error {
+  color: $red;
+  border-color: $red;
 }
 

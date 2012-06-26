@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :name, :password, :password_confirmation
 
+  has_many :microposts, dependent: :destroy
+
   has_secure_password
 
   validates :name, presence: true,
@@ -27,6 +29,10 @@ class User < ActiveRecord::Base
   before_save do |user|
     user.email = email.downcase
     create_remember_token
+  end
+
+  def feed
+    Micropost.where('user_id = ?', id)
   end
 
   private
