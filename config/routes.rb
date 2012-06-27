@@ -2,20 +2,23 @@ SampleApp::Application.routes.draw do
 
   # match '/users/:name', to: 'users#show_by_name', name: /([a-zA-Z]+.+|[\d]+[a-zA-Z]+.+)/
 
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+
   resources :sessions, only: [ :new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
+
+  root to: 'static_pages#home'
 
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
-  # get "static_pages/home"
-  root to: 'static_pages#home'
-  # get "static_pages/help"
   match '/help', to: 'static_pages#help'
-  # get "static_pages/about"
   match '/about', to: 'static_pages#about'
-  # get "static_pages/contact"
   match '/contact', to: 'static_pages#contact'
 
 
