@@ -10,4 +10,5 @@ end
 def sign_in(user)
   visit signin_path
   valid_signin(user)
+  cookies[:remember_token] = user.remember_token
 end
